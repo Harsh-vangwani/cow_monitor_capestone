@@ -1,5 +1,11 @@
 import os
 import streamlit as st
+
+# ✅ Set page config FIRST
+st.set_page_config(layout="wide", page_title="Agricultural Calculations")
+
+import os
+import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -11,10 +17,38 @@ import numpy as np
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 from dotenv import load_dotenv
+# st.markdown(
+#     """
+#     <style>
+#     .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
+#     .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137,
+#     .viewerBadge_text__1JaDK {
+#         display: none;
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
 
-# Set page configuration
-st.set_page_config(layout="wide", page_title="Agricultural Calculations")
-
+st.markdown(
+    """
+    <style>
+    /* Hide the entire header bar */
+    [data-testid="stHeader"] {
+        display: none;
+    }
+    /* Hide the Streamlit watermark/footer */
+    [data-testid="stDecoration"] {
+        display: none;
+    }
+    /* Adjust padding if needed */
+    [data-testid="stAppViewContainer"] {
+        padding-top: 0px !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Initialize session state for all inputs to track resets
 if 'reset_clicked' not in st.session_state:
     st.session_state['reset_clicked'] = False
